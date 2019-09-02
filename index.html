@@ -9,6 +9,22 @@
   </head>
   <body>
     <h1>Finance Calculator</h1>
+    <p>I want to borrow</p>
+    <input
+      id="slide"
+      type="range"
+      min="1"
+      max="8000"
+      step="1"
+      value="10"
+      onchange="updateSlider(this.value), calAdminFee(this.value)"
+    />
+    <div id="sliderAmount">£1</div>
+
+    <p>Admin Fee</p>
+    <div id="adminFee"></div>
+
+    <p>I want to borrow</p>
     <input
       id="slide"
       type="range"
@@ -18,7 +34,7 @@
       value="10"
       onchange="updateSlider(this.value)"
     />
-    <div id="sliderAmount">1</div>
+    <div id="sliderAmount">£1</div>
     ​
   </body>
 </html>
