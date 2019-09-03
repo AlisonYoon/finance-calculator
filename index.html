@@ -17,24 +17,15 @@
       max="8000"
       step="1"
       value="10"
-      onchange="updateSlider(this.value), calAdminFee(this.value)"
+      onchange="updateSlider(this.value), calAdminFee(this.value), calInterest(this.value)"
     />
     <div id="sliderAmount">£1</div>
 
     <p>Admin Fee</p>
     <div id="adminFee"></div>
 
-    <p>I want to borrow</p>
-    <input
-      id="slide"
-      type="range"
-      min="1"
-      max="8000"
-      step="1"
-      value="10"
-      onchange="updateSlider(this.value)"
-    />
-    <div id="sliderAmount">£1</div>
+    <p>Interest</p>
+    <div id="interest"></div>
     ​
   </body>
 </html>
