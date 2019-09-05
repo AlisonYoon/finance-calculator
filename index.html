@@ -17,15 +17,28 @@
       max="8000"
       step="1"
       value="10"
-      onchange="updateSlider(this.value), calAdminFee(this.value), calInterest(this.value)"
+      onchange="updateSlider(this.value), calAdminFee(this.value), calInterest(this.value), SetMax(this.value), monthlyPay(this.value)"
     />
     <div id="sliderAmount">£1</div>
 
     <p>Admin Fee</p>
-    <div id="adminFee"></div>
+    <div id="adminFee">£0</div>
 
     <p>Interest</p>
-    <div id="interest"></div>
+    <div id="interest">£0</div>
+
+    <p>Monthly Repayment</p>
+    <input
+      id="repaySlider"
+      type="range"
+      step="1"
+      value="10"
+      onchange="SetMax(slideAmount), monthlyPay(slideAmount)"
+    />
+    <div id="monthlyPay"></div>
+
+    <p>It will take</p>
+    <div id="takeHowLong"></div>
     ​
   </body>
 </html>
