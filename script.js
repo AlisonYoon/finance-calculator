@@ -4,7 +4,7 @@ let updateSlider = slideAmount => {
   const sliderDiv = document.getElementById("sliderAmount");
   sliderDiv.innerHTML = "£" + slideAmount;
   let defaultMonthlyPay = Math.round(slideAmount * 0.1 * 100) / 100;
-  slider.value = defaultMonthlyPay.toFixed(2);
+  //slider.value = defaultMonthlyPay.toFixed(2);
 };
 
 let calAdminFee = slideAmount => {
@@ -26,12 +26,6 @@ let calInterest = slideAmount => {
   interestAmount.innerHTML = "£" + interestResult;
 };
 
-let monthlyPay = slideAmount => {
-  let monthlyPayAmount;
-  const monthlyPay = document.getElementById("monthlyPay");
-  monthlyPay.innerHTML = "£" + slideAmount * 0.1;
-};
-
 function SetMax(slideAmount) {
   if ("max" in slider) {
     // Google Chrome, Safari from version 5 and Opera
@@ -43,3 +37,29 @@ function SetMax(slideAmount) {
     slider.setAttribute("max", slideAmount);
   }
 }
+
+let monthlyPay = slideAmount => {
+  const monthlyPay = document.getElementById("monthlyPay");
+  monthlyPay.innerHTML = "£" + slideAmount;
+};
+
+let howLongItTakes = slideAmount => {
+  const takeHowLong = document.getElementById("takeHowLong");
+  let loanAmount = document.getElementById("slide").value;
+  let loanAmountNum = parseInt(loanAmount);
+  let payBackAmount = document.getElementById("repaySlider").value;
+  let payBackAmountNum = parseFloat(payBackAmount);
+  let adminFee = document.getElementById("adminFee").innerHTML;
+  let interestFee = document.getElementById("interest").innerHTML;
+
+  let adminFeeNum = adminFee.replace("£", "");
+  let interestFeeNum = interestFee.replace("£", "");
+  let adminFeeTotal = parseFloat(adminFeeNum);
+  let interestFeeTotal = parseInt(interestFeeNum);
+
+  console.log(loanAmountNum + adminFeeTotal + interestFeeTotal);
+
+  let months =
+    (loanAmountNum + adminFeeTotal + interestFeeTotal) / payBackAmountNum;
+  takeHowLong.innerHTML = Math.round(months) + " months";
+};
