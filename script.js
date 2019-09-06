@@ -4,7 +4,6 @@ let updateSlider = slideAmount => {
   const sliderDiv = document.getElementById("sliderAmount");
   sliderDiv.innerHTML = "£" + slideAmount;
   let defaultMonthlyPay = Math.round(slideAmount * 0.1 * 100) / 100;
-  //slider.value = defaultMonthlyPay.toFixed(2);
 };
 
 let calAdminFee = slideAmount => {
@@ -51,15 +50,11 @@ let howLongItTakes = slideAmount => {
   let payBackAmountNum = parseFloat(payBackAmount);
   let adminFee = document.getElementById("adminFee").innerHTML;
   let interestFee = document.getElementById("interest").innerHTML;
-
   let adminFeeNum = adminFee.replace("£", "");
   let interestFeeNum = interestFee.replace("£", "");
   let adminFeeTotal = parseFloat(adminFeeNum);
   let interestFeeTotal = parseInt(interestFeeNum);
-
-  console.log(loanAmountNum + adminFeeTotal + interestFeeTotal);
-
   let months =
     (loanAmountNum + adminFeeTotal + interestFeeTotal) / payBackAmountNum;
-  takeHowLong.innerHTML = Math.round(months) + " months";
+  takeHowLong.innerHTML = Math.ceil(months) + " months";
 };
